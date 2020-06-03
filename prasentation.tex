@@ -9,6 +9,8 @@
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{listings}
+\usepackage{enumitem}
+
 \usepackage{style/csharp}
 
 \author{Florian Gehring}
@@ -19,6 +21,11 @@
 %\institute{} 
 \date{18.06.2020} 
 %\subject{} 
+
+\setlist{parsep=3em}
+\setlist{label=\textbullet}
+
+
 \begin{document}
 
 % Create a line splitting two columns
@@ -39,7 +46,38 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Typen}
+
+\begin{frame}{Allgemeines Typsystem}
+\begin{itemize}
+% https://docs.microsoft.com/de-de/dotnet/csharp/programming-guide/types/
+\item Stark Typisiert
+\begin{itemize}
+	\item jede Konstante, Variable und jeder Ausdruck hat einen Typ
+\end{itemize}
+\item CTS (Common Type System)
+\begin{itemize}
+	\item \textbf{Jeder} Typ ist von \texttt{System.Object} (\texttt{object}) abgeleitet
+\end{itemize}
+\item Integrierte Typen
+\begin{itemize}
+	\item \glqq Zahlen\grqq{}, \texttt{boolean}, \texttt{char}, \texttt{object}, \texttt{string}
+\end{itemize}
+\item Referenztypen / Werttypen
+\begin{itemize}
+\item \texttt{System.ValueType}
+\end{itemize}
+\item Benutzerdefinierte Typen
+\begin{itemize}
+\item \texttt{class, enum, struct}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Ganzzahlen}
+
+\end{frame}
+
+\begin{frame}{Zusammenfassung Typen}
 \begin{multicols}{2}
 Java \\
 \begin{itemize}
