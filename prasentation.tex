@@ -1,0 +1,67 @@
+\documentclass[11pt]{beamer}
+\usetheme{Madrid}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{style/csharp}
+
+\author{Florian Gehring}
+\title{Vergleich zu C\#}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+\date{18.06.2020} 
+%\subject{} 
+\begin{document}
+
+% Create a line splitting two columns
+\setlength{\columnseprule}{0.4pt}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+
+\begin{frame}{Geschichte}
+\begin{itemize}
+	\item Von Microsoft Entwickelt
+	\item \glqq Direkter Konkurent\grqq{} zu Java
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Typen}
+\begin{multicols}{2}
+Java \\
+\begin{itemize}
+\item Primitive Typen nicht von \texttt{Object} abgeleitet
+\item Call-by-Value, Call-By-Reference
+\item Wrapper-Klasse \texttt{Integer} für \texttt{int}
+\end{itemize}
+
+\columnbreak
+
+
+C\#\\
+\begin{itemize}
+\item Alles (auch \texttt{int}) von \texttt{object} abgeleitet
+\item Zahlen, boolean sind \glqq{}Werttype\grqq{}
+\item \texttt{int} kann mit \texttt{int?} Nullable gemacht werden
+\end{itemize}
+\end{multicols}
+\end{frame}
+
+\begin{frame}{Codebeispiele 1}
+
+
+\end{frame}
+\end{document}
