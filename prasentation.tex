@@ -10,6 +10,7 @@
 \usepackage{multicol}
 \usepackage{listings}
 \usepackage{enumitem}
+\usepackage{hyperref}
 
 \usepackage{style/csharp}
 
@@ -39,6 +40,14 @@
 %\tableofcontents
 %\end{frame}
 
+% Hello World Frame
+\begin{frame}{Hello, World!}
+\lstinputlisting{Beispielcode/Program.cs}
+Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotnet/csharp/tour-of-csharp/}{Tour of C\#}
+
+\end{frame}
+
+
 \begin{frame}{Geschichte}
 \begin{itemize}
 	\item Von Microsoft Entwickelt
@@ -50,51 +59,65 @@
 \begin{frame}{Allgemeines Typsystem}
 \begin{itemize}
 % https://docs.microsoft.com/de-de/dotnet/csharp/programming-guide/types/
-\item Stark Typisiert
-\begin{itemize}
-	\item jede Konstante, Variable und jeder Ausdruck hat einen Typ
-\end{itemize}
-\item CTS (Common Type System)
-\begin{itemize}
-	\item \textbf{Jeder} Typ ist von \texttt{System.Object} (\texttt{object}) abgeleitet
-\end{itemize}
-\item Integrierte Typen
-\begin{itemize}
-	\item \glqq Zahlen\grqq{}, \texttt{boolean}, \texttt{char}, \texttt{object}, \texttt{string}
-\end{itemize}
-\item Referenztypen / Werttypen
-\begin{itemize}
-\item \texttt{System.ValueType}
-\end{itemize}
-\item Benutzerdefinierte Typen
-\begin{itemize}
-\item \texttt{class, enum, struct}
-\end{itemize}
+	\item Stark Typisiert
+	\begin{itemize}
+		\item jede Konstante, Variable und jeder Ausdruck hat einen Typ
+	\end{itemize}
+	\item CTS (Common Type System)
+	\begin{itemize}
+		\item \textbf{Jeder} Typ ist von \texttt{System.Object} (\texttt{object}) abgeleitet
+	\end{itemize}
+
+	\item Integrierte Typen
+	\begin{itemize}
+		\item \glqq Zahlen\grqq{}, \texttt{boolean}, \texttt{char}, \texttt{object}, \texttt{string}
+	\end{itemize}
+	\item Referenztypen / Werttypen
+	\begin{itemize}
+		\item \texttt{System.ValueType}
+	\end{itemize}
+	\item Benutzerdefinierte Typen
+	\begin{itemize}
+		\item \texttt{class, enum, struct}
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Ganzzahlen}
 
+\begin{frame}{Variablen Deklarationen}
+\lstinputlisting[linerange={1-2,5-16}]{Beispielcode/variable_declaration.cs}
+\begin{itemize}
+	\item \texttt{var} Keyword
+	\item List Comprehension
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ganzzahlen}
+\lstinputlisting[linerange={6-20}]{Beispielcode/typesystem.cs}
+
+System.Int32 \\
+Int32 CompareTo(System.Object) Int32 CompareTo(Int32) ... \\
+System.Int32 -> System.ValueType -> System.Object
 \end{frame}
 
 \begin{frame}{Zusammenfassung Typen}
 \begin{multicols}{2}
-Java \\
-\begin{itemize}
-\item Primitive Typen nicht von \texttt{Object} abgeleitet
-\item Call-by-Value, Call-By-Reference
-\item Wrapper-Klasse \texttt{Integer} für \texttt{int}
-\end{itemize}
+	Java \\
+	\begin{itemize}
+		\item Primitive Typen nicht von \texttt{Object} abgeleitet
+		\item Call-by-Value, Call-By-Reference
+		\item Wrapper-Klasse \texttt{Integer} für \texttt{int}
+	\end{itemize}
 
 \columnbreak
 
-
-C\#\\
-\begin{itemize}
-\item Alles (auch \texttt{int}) von \texttt{object} abgeleitet
-\item Zahlen, boolean sind \glqq{}Werttype\grqq{}
-\item \texttt{int} kann mit \texttt{int?} Nullable gemacht werden
-\end{itemize}
+	C\#\\
+	\begin{itemize}
+		\item Alles (auch \texttt{int}) von \texttt{object} abgeleitet
+		\item Zahlen, boolean sind \glqq{}Werttype\grqq{}
+		\item \texttt{int} kann mit \texttt{int?} Nullable gemacht werden
+	\end{itemize}
 \end{multicols}
 \end{frame}
 
