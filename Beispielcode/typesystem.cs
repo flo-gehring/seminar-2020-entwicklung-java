@@ -3,9 +3,9 @@ using System.Linq;
 
 class Typesystem {
     public static void types(){
-        int i = 2;
-        // Get the Type
-        Type t = i.GetType();
+int i = 2;
+// Get the Type
+        Type t = i.GetType(); // Methodenaufruf auf int!
         Console.WriteLine(t);
         // Which Methods can be called on this object?
         foreach(var method in t.GetMethods()) {

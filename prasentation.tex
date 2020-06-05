@@ -11,7 +11,7 @@
 \usepackage{listings}
 \usepackage{enumitem}
 \usepackage{hyperref}
-
+\usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{style/csharp}
 
 \author{Florian Gehring}
@@ -29,8 +29,7 @@
 
 \begin{document}
 
-% Create a line splitting two columns
-\setlength{\columnseprule}{0.4pt}
+
 
 \begin{frame}
 \titlepage
@@ -42,7 +41,7 @@
 
 % Hello World Frame
 \begin{frame}{Hello, World!}
-\lstinputlisting{Beispielcode/Program.cs}
+\lstinputlisting{Beispielcode/hello_world.cs}
 Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotnet/csharp/tour-of-csharp/}{Tour of C\#}
 
 \end{frame}
@@ -55,6 +54,14 @@ Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotn
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Typsystem Allgemein}
+	\begin{figure}
+	\centering
+		\includegraphics[width=0.7\textwidth]{bilder/value-reference-types-common-type-system.png}
+		\caption{Type System in C\# \cite{progrguide}}
+	\end{figure}
+\end{frame}
 
 \begin{frame}{Allgemeines Typsystem}
 \begin{itemize}
@@ -87,13 +94,13 @@ Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotn
 \begin{frame}{Variablen Deklarationen}
 \lstinputlisting[linerange={1-2,5-16}]{Beispielcode/variable_declaration.cs}
 \begin{itemize}
-	\item \texttt{var} Keyword
-	\item List Comprehension
+	\item \texttt{var} Keyword \cite{so_var_java}
+	\item LINQ
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Ganzzahlen}
+\begin{frame}{Werttypen}
 \lstinputlisting[linerange={6-20}]{Beispielcode/typesystem.cs}
 
 System.Int32 \\
@@ -101,7 +108,21 @@ Int32 CompareTo(System.Object) Int32 CompareTo(Int32) ... \\
 System.Int32 -> System.ValueType -> System.Object
 \end{frame}
 
+
+\begin{frame}{Werttypen - Vergleich Java}
+	\begin{itemize}
+		\item In Java: Integer $\neq$ int
+		\item Zwar automatische Konvertierung, aber int ist kein Objekt
+		\item Auskommentierte Zeilen führen zu Fehlern
+	\end{itemize}
+	\lstinputlisting[linerange={9-15}]{Beispielcode/test/test.java}
+	
+\end{frame}
+
+
 \begin{frame}{Zusammenfassung Typen}
+% Create a line splitting two columns
+\setlength{\columnseprule}{0.4pt}
 \begin{multicols}{2}
 	Java \\
 	\begin{itemize}
@@ -121,8 +142,61 @@ System.Int32 -> System.ValueType -> System.Object
 \end{multicols}
 \end{frame}
 
-\begin{frame}{Codebeispiele 1}
 
+\begin{frame}{Klassen}
 
+	\begin{itemize}
+		\item Erben implizit von \texttt{object}
+		\item  Enthalten: \texttt{constructors}, \textbf{\texttt{properties}}, \texttt{indexers}, \texttt{events}, \texttt{operators} and \texttt{destructors}
+		 \item \texttt{sealed}-Modifier: Für die gesamte Klasse oder einzelne Methoden
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Vererbung}
+	\lstinputlisting[basicstyle=\tiny,linerange={1-28}]{Beispielcode/classes.cs}
+\end{frame}
+
+\begin{frame}{Vererbung}
+	\lstinputlisting[basicstyle=\tiny,linerange={30-41}]{Beispielcode/classes.cs}
+	Base, example 1\\
+	Base, example 1\\
+	Derived, example 1\\
+	Base, example 2\\
+	Derived, example 2\\
+	Derived, example 2\\
+	Base, example 3\\
+	Base, example 3\\
+	Derived, example 3
+\end{frame}
+
+\begin{frame}{Vererbung - Vergleich Java}
+	
+	\begin{itemize}
+		\item Java: Alle Methoden sind virtuell
+		\begin{itemize}
+			\item Override wird mit \texttt{final} verhindert.
+			\item Kein Äquivalent zu C\# \texttt{new}
+		\end{itemize}
+		\item Java: \texttt{@Override} Dekorator soll Code lesbarer machen
+		\item In C\# Ingesamt expliziter als in Java
+		\begin{itemize}
+			\item Für interessierte: Interview mit C\# Chefdesigner \cite{interview_virtual}
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Quellen}
+\begin{thebibliography}{99}
+\fontsize{6pt}{7.2}\selectfont
+	\bibitem{progrguide}"Programming Guide C\#", \url{https://docs.microsoft.com/de-de/dotnet/csharp/programming-guide/}, 05.06.2020
+	\bibitem{spec_csharp} C\# Language Specification, \url{https://docs.microsoft.com/de-de/dotnet/csharp/language-reference/language-specification/introduction}, 05.06.2020
+   \bibitem{intro_csharp}Introduction to C\#, \url{https://docs.microsoft.com/de-de/dotnet/csharp/language-reference/language-specification/introduction}, 06.06.2020
+
+ \bibitem{so_var_java}'"What is the equivalent of the C\# 'var' keyword in Java?"', 
+ \url{https://stackoverflow.com/a/49598148}, 05.06.2020
+ \bibitem{interview_virtual}'Interview with C\# Designer', \url{https://www.artima.com/intv/nonvirtual.html}, 06.06.2020
+\end{thebibliography}
 \end{frame}
 \end{document}

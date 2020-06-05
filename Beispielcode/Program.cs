@@ -6,8 +6,8 @@ namespace Beispielcode
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
-            Typesystem.types();      
+            ClassTest.modifierBehavior();
+            
         }
     }
 }

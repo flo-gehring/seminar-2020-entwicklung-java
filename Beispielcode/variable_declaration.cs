@@ -5,7 +5,7 @@ class VariableDeclaration {
         // Declaration only:
         float temperature;
         string name;
-        Hello hello;
+        Beispielcode.Hello hello;
     
 
         // Declaration with initializers (four examples):

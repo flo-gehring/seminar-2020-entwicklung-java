@@ -2,7 +2,10 @@
 *.csproj
 bin/
 obj/
-
+# IDEA
+.idea/
+*.iml
+out/
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

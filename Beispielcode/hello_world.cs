@@ -1,4 +1,5 @@
 using System;
+namespace Beispielcode{
 
 class Hello
 {
@@ -6,4 +7,5 @@ class Hello
     {
         Console.WriteLine("Hello, World");
     }
+}
 }
