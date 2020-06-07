@@ -1,10 +1,9 @@
 package test;
 
-import java.lang.reflect.Type;
 
 class test {
 
-    public static void main(String[] args) {
+    public static void test_method(String[] args) {
 
 int i = 2;
 // i.getClass();

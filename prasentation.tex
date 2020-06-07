@@ -236,18 +236,39 @@ Derived, example 3
 \end{frame}
 \begin{frame}{Delegates}
 	Erstes Beispiel:
-	\csharpcode[firstline=4, lastline=17]{Beispielcode/delegates.cs}
+	\csharpcode[firstline=4, lastline=18]{Beispielcode/delegates.cs}
+\end{frame}
+
+\begin{frame}{Delegates}
+	Initialisierung Möglich als: Methode mit Namen, Anonyme Methode und Lambda Funktion
+	\csharpcode[firstline=35, lastline=41]{Beispielcode/delegates.cs}
 \end{frame}
 
 \begin{frame}{Delegates - Invocation List}
 	\begin{itemize}
 		\item  Eine Kombination von Delegaten ist möglich
-		\item Methoden \texttt{TimesTwo (d1)} und \texttt{TimesThree (d2)} werden nacheinander mit 2 aufgerufen.
+		\item Methoden \texttt{TimesTwo (d1)} und \texttt{TimesThree (d2)} werden nacheinander mit 2 aufgerufen
+		\begin{itemize}
+			\item Delegatenaufruf gibt jetzt \texttt{void} zurück
+		\end{itemize}
 	\end{itemize}
-	\csharpcode[firstline=18, lastline=27]{Beispielcode/delegates.cs}
+	\csharpcode[firstline=20, lastline=33]{Beispielcode/delegates.cs}
 \end{frame}
 
+\begin{frame}{Delegates - Vergleich Java}
+	\begin{itemize}
+		\item Java: Functional Interfaces
+		\begin{itemize}
+			\item bestehend aus einer Funktion
+			\item Automatisches Casten von Lambda-Ausdrücken
+			\item \glqq Lambda expressions let you express instances of single-method classes more compactly.\grqq
+			\item \texttt{@FunctionalInterface} Annotation		
+		\end{itemize}
+		\item Wieder weniger explizit
+		\item Man sieht nicht am Datentyp, dass es sich um eine Funktion handelt
 
+	\end{itemize}
+\end{frame}
 
 \begin{frame}{Quellen}
 \begin{thebibliography}{99}
