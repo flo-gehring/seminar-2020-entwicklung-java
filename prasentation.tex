@@ -14,7 +14,6 @@
 \usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{style/csharp}
 \usepackage{minted}
-
 \author{Florian Gehring}
 \title{Vergleich zu C\#}
 %\setbeamercovered{transparent} 
@@ -224,6 +223,31 @@ Derived, example 3
 	\end{itemize}
 
 \end{frame}
+
+% Delegates
+\begin{frame}{Delegates}
+\begin{itemize}
+ 	\item \texttt{Delegates} sind Referenz\textbf{typen} (Objekte)
+ 	\item Sie kapseln die Funktionalität einer (anonymen) Methode
+ 	\item Die Methode wird mittels des Delegats aufgerufen
+\end{itemize}
+\csharpcode[firstline=3, lastline=4]{Beispielcode/delegates.cs}
+	
+\end{frame}
+\begin{frame}{Delegates}
+	Erstes Beispiel:
+	\csharpcode[firstline=4, lastline=17]{Beispielcode/delegates.cs}
+\end{frame}
+
+\begin{frame}{Delegates - Invocation List}
+	\begin{itemize}
+		\item  Eine Kombination von Delegaten ist möglich
+		\item Methoden \texttt{TimesTwo (d1)} und \texttt{TimesThree (d2)} werden nacheinander mit 2 aufgerufen.
+	\end{itemize}
+	\csharpcode[firstline=18, lastline=27]{Beispielcode/delegates.cs}
+\end{frame}
+
+
 
 \begin{frame}{Quellen}
 \begin{thebibliography}{99}

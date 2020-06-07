@@ -6,8 +6,7 @@ namespace Beispielcode
     {
         static void Main(string[] args)
         {
-            ClassTest.modifierBehavior();
-            
+            DelegateDemonstration.as_parameters();
         }
     }
 }
