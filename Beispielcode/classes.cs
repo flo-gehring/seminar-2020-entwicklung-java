@@ -33,9 +33,17 @@ class ClassTest {
         Base actuallyDerived = new Derived();
         Derived trueDerived = new Derived();
 
-        trueBase.ex1(); actuallyDerived.ex1(); trueDerived.ex1();
-        trueBase.ex2(); actuallyDerived.ex2(); trueDerived.ex2();
-        trueBase.ex3(); actuallyDerived.ex3(); trueDerived.ex3();
+        trueBase.ex1(); 
+        actuallyDerived.ex1(); 
+        trueDerived.ex1();
+        
+        trueBase.ex2(); 
+        actuallyDerived.ex2(); 
+        trueDerived.ex2();
+        
+        trueBase.ex3(); 
+        actuallyDerived.ex3(); 
+        trueDerived.ex3();
 
     }
 }

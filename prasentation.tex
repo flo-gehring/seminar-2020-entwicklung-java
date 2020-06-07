@@ -13,6 +13,7 @@
 \usepackage{hyperref}
 \usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{style/csharp}
+\usepackage{minted}
 
 \author{Florian Gehring}
 \title{Vergleich zu C\#}
@@ -26,11 +27,29 @@
 \setlist{parsep=3em}
 \setlist{label=\textbullet}
 
+\newmintedfile[csharpcode]{csharp}{
+bgcolor=white,
+linenos=true,
+numberblanklines=true,
+numbersep=3pt,
+gobble=0,
+frame=leftline,
+framerule=0.pt,
+framesep=1mm,
+funcnamehighlighting=true,
+tabsize=4,
+obeytabs=false,
+mathescape=false
+samepage=false, %with this setting you can force the list to appear on the same page
+showspaces=false,
+showtabs =false,
+texcl=false,
+fontsize=\small
+}
+
 
 \begin{document}
-
-
-
+\setminted{linenos}
 \begin{frame}
 \titlepage
 \end{frame}
@@ -41,7 +60,8 @@
 
 % Hello World Frame
 \begin{frame}{Hello, World!}
-\lstinputlisting{Beispielcode/hello_world.cs}
+\csharpcode{Beispielcode/hello_world.cs}
+%\lstinputlisting{Beispielcode/hello_world.cs}
 Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotnet/csharp/tour-of-csharp/}{Tour of C\#}
 
 \end{frame}
@@ -92,7 +112,9 @@ Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotn
 
 
 \begin{frame}{Variablen Deklarationen}
-\lstinputlisting[linerange={1-2,5-16}]{Beispielcode/variable_declaration.cs}
+\csharpcode[firstline=5, lastline=16]{Beispielcode/variable_declaration.cs}
+
+%\lstinputlisting[linerange={1-2,5-16}]{Beispielcode/variable_declaration.cs}
 \begin{itemize}
 	\item \texttt{var} Keyword \cite{so_var_java}
 	\item LINQ
@@ -101,9 +123,8 @@ Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotn
 
 
 \begin{frame}{Werttypen}
-\lstinputlisting[linerange={6-20}]{Beispielcode/typesystem.cs}
-
-System.Int32 \\
+\csharpcode[firstline=6, lastline=20, fontsize=\footnotesize]{Beispielcode/typesystem.cs}
+System.Int32 \\ %\lstinputlisting[linerange={6-20}]{Beispielcode/typesystem.cs}
 Int32 CompareTo(System.Object) Int32 CompareTo(Int32) ... \\
 System.Int32 -> System.ValueType -> System.Object
 \end{frame}
@@ -115,7 +136,7 @@ System.Int32 -> System.ValueType -> System.Object
 		\item Zwar automatische Konvertierung, aber int ist kein Objekt
 		\item Auskommentierte Zeilen führen zu Fehlern
 	\end{itemize}
-	\lstinputlisting[linerange={9-15}]{Beispielcode/test/test.java}
+	\inputminted[firstline=9, lastline=15, linenos=true]{java}{Beispielcode/test/test.java}
 	
 \end{frame}
 
@@ -154,20 +175,36 @@ System.Int32 -> System.ValueType -> System.Object
 \end{frame}
 
 \begin{frame}{Vererbung}
-	\lstinputlisting[basicstyle=\tiny,linerange={1-28}]{Beispielcode/classes.cs}
+	Klassen \texttt{Base} und \texttt{Derived} mit den Methoden \texttt{ex1, ex2, ex3}.
+	\csharpcode[fontsize=\tiny, firstline=1, lastline=28]{Beispielcode/classes.cs}
+%	\csharpcode[fontsize=\tiny, firstline=13, lastline=28]{Beispielcode/classes.cs}
+	% \lstinputlisting[basicstyle=\tiny,linerange={1-28}]{Beispielcode/classes.cs}
 \end{frame}
 
 \begin{frame}{Vererbung}
-	\lstinputlisting[basicstyle=\tiny,linerange={30-41}]{Beispielcode/classes.cs}
-	Base, example 1\\
-	Base, example 1\\
-	Derived, example 1\\
-	Base, example 2\\
-	Derived, example 2\\
-	Derived, example 2\\
-	Base, example 3\\
-	Base, example 3\\
-	Derived, example 3
+	\begin{columns}
+		\begin{column}{0.7\textwidth}
+				\csharpcode[firstline=31,lastline=48, fontsize=\footnotesize]{Beispielcode/classes.cs}
+		\end{column}
+		\begin{column}{0.3\textwidth}
+		Ausgabe: \\
+Base, example 1\\
+Base, example 1\\
+Derived, example 1\\
+Base, example 2\\
+Derived, example 2\\
+Derived, example 2\\
+Base, example 3\\
+Base, example 3\\
+Derived, example 3
+			
+		\end{column}
+	
+
+	\end{columns}
+
+	% \lstinputlisting[basicstyle=\tiny,linerange={30-41}]{Beispielcode/classes.cs}
+
 \end{frame}
 
 \begin{frame}{Vererbung - Vergleich Java}
@@ -181,6 +218,7 @@ System.Int32 -> System.ValueType -> System.Object
 		\item Java: \texttt{@Override} Dekorator soll Code lesbarer machen
 		\item In C\# Ingesamt expliziter als in Java
 		\begin{itemize}
+			\item Fokus auf Versionierung und Kompatibilität von Code
 			\item Für interessierte: Interview mit C\# Chefdesigner \cite{interview_virtual}
 		\end{itemize}
 	\end{itemize}

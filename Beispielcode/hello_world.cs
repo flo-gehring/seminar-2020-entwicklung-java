@@ -1,11 +1,11 @@
 using System;
-namespace Beispielcode{
-
-class Hello
+namespace Beispielcode 
 {
-    static void asdf(String[] args)
+    class Hello 
     {
-        Console.WriteLine("Hello, World");
+        static void asdf(String[] args)
+        {
+            Console.WriteLine("Hello, World");
+        }
     }
-}
 }
