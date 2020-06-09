@@ -79,7 +79,7 @@ fontsize=\small
 
 % Hello World Frame
 \begin{frame}{Hello, World!}
-\csharpcode{Beispielcode/hello_world.cs}
+\csharpcode{Beispielcode/csharp/hello_world.cs}
 %\lstinputlisting{Beispielcode/hello_world.cs}
 Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotnet/csharp/tour-of-csharp/}{Tour of C\#}
 
@@ -131,7 +131,7 @@ Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotn
 
 
 \begin{frame}{Variablen Deklarationen}
-\csharpcode[firstline=5, lastline=16]{Beispielcode/variable_declaration.cs}
+\csharpcode[firstline=5, lastline=16]{Beispielcode/csharp/variable_declaration.cs}
 
 %\lstinputlisting[linerange={1-2,5-16}]{Beispielcode/variable_declaration.cs}
 \begin{itemize}
@@ -142,7 +142,7 @@ Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotn
 
 
 \begin{frame}{Werttypen}
-\csharpcode[firstline=6, lastline=20, fontsize=\footnotesize]{Beispielcode/typesystem.cs}
+\csharpcode[firstline=6, lastline=20, fontsize=\footnotesize]{Beispielcode/csharp/typesystem.cs}
 System.Int32 \\ %\lstinputlisting[linerange={6-20}]{Beispielcode/typesystem.cs}
 Int32 CompareTo(System.Object) Int32 CompareTo(Int32) ... \\
 System.Int32 -> System.ValueType -> System.Object
@@ -155,7 +155,7 @@ System.Int32 -> System.ValueType -> System.Object
 		\item Zwar automatische Konvertierung, aber int ist kein Objekt
 		\item Auskommentierte Zeilen führen zu Fehlern
 	\end{itemize}
-	\inputminted[firstline=9, lastline=15, linenos=true]{java}{Beispielcode/test/test.java}
+	\javacode[firstline=9, lastline=15]{Beispielcode/java/test/test.java}
 	
 \end{frame}
 
@@ -195,7 +195,7 @@ System.Int32 -> System.ValueType -> System.Object
 
 \begin{frame}{Vererbung}
 	Klassen \texttt{Base} und \texttt{Derived} mit den Methoden \texttt{ex1, ex2, ex3}.
-	\csharpcode[fontsize=\tiny, firstline=1, lastline=28]{Beispielcode/classes.cs}
+	\csharpcode[fontsize=\tiny, firstline=1, lastline=28]{Beispielcode/csharp/classes.cs}
 %	\csharpcode[fontsize=\tiny, firstline=13, lastline=28]{Beispielcode/classes.cs}
 	% \lstinputlisting[basicstyle=\tiny,linerange={1-28}]{Beispielcode/classes.cs}
 \end{frame}
@@ -203,7 +203,7 @@ System.Int32 -> System.ValueType -> System.Object
 \begin{frame}{Vererbung}
 	\begin{columns}
 		\begin{column}{0.7\textwidth}
-				\csharpcode[firstline=31,lastline=48, fontsize=\footnotesize]{Beispielcode/classes.cs}
+				\csharpcode[firstline=31,lastline=48, fontsize=\footnotesize]{Beispielcode/csharp/classes.cs}
 		\end{column}
 		\begin{column}{0.3\textwidth}
 		Ausgabe: \\
@@ -277,21 +277,21 @@ Derived, example 3
 	\begin{figure}
 		\includegraphics[width=\textwidth]{bilder/java_type_erasure.png}
 	\end{figure}
-	\csharpcode[firstline=2, lastline=8]{Beispielcode/GenericSort.cs}
+	\csharpcode[firstline=2, lastline=8]{Beispielcode/csharp/GenericSort.cs}
 \end{frame}
 
 \begin{frame}{Type Erasure: Typen Generischer Klassen}
 	Java
-	\javacode[firstline=12, lastline=18]{Beispielcode/test/GenericTest.java}
+	\javacode[firstline=12, lastline=18]{Beispielcode/java/test/GenericTest.java}
 	$C\#$
-	\csharpcode[firstline=10, lastline=14]{Beispielcode/GenericSort.cs}
+	\csharpcode[firstline=10, lastline=14]{Beispielcode/csharp/GenericSort.cs}
 \end{frame}
 
 \begin{frame}{Type Erasure: Objekt Instanziierung}
 	Java
-	\javacode[firstline=27, lastline=35]{Beispielcode/test/GenericTest.java}
+	\javacode[firstline=27, lastline=35]{Beispielcode/java/test/GenericTest.java}
 	$C\#$
-	\csharpcode[firstline=20, lastline=22]{Beispielcode/GenericSort.cs}
+	\csharpcode[firstline=20, lastline=22]{Beispielcode/csharp/GenericSort.cs}
 \end{frame}
 
 \begin{frame}{Type Erasure: Statische Methoden}
@@ -300,7 +300,13 @@ Derived, example 3
 	\end{figure}
 	
 	$C\#$
-	\csharpcode[firstline=25, lastline=40,fontsize=\tiny]{Beispielcode/GenericSort.cs}
+	\csharpcode[firstline=25, lastline=40,fontsize=\tiny]{Beispielcode/csharp/GenericSort.cs}
+\end{frame}
+
+\begin{frame}{Generics - Reflection}
+\begin{itemize}
+	\item Java: No 
+\end{itemize}
 \end{frame}
 
 %-------------------------
@@ -314,17 +320,17 @@ Derived, example 3
  	\item Sie kapseln die Funktionalität einer (anonymen) Methode
  	\item Die Methode wird mittels des Delegats aufgerufen
 \end{itemize}
-\csharpcode[firstline=3, lastline=4]{Beispielcode/delegates.cs}
+\csharpcode[firstline=3, lastline=4]{Beispielcode/csharp/delegates.cs}
 	
 \end{frame}
 \begin{frame}{Delegates}
 	Erstes Beispiel:
-	\csharpcode[firstline=4, lastline=18]{Beispielcode/delegates.cs}
+	\csharpcode[firstline=4, lastline=18]{Beispielcode/csharp/delegates.cs}
 \end{frame}
 
 \begin{frame}{Delegates}
 	Initialisierung Möglich als: Methode mit Namen, Anonyme Methode und Lambda Funktion
-	\csharpcode[firstline=35, lastline=41]{Beispielcode/delegates.cs}
+	\csharpcode[firstline=35, lastline=41]{Beispielcode/csharp/delegates.cs}
 \end{frame}
 
 \begin{frame}{Delegates - Invocation List}
@@ -335,7 +341,7 @@ Derived, example 3
 			\item Delegatenaufruf gibt jetzt \texttt{void} zurück
 		\end{itemize}
 	\end{itemize}
-	\csharpcode[firstline=20, lastline=33]{Beispielcode/delegates.cs}
+	\csharpcode[firstline=20, lastline=33]{Beispielcode/csharp/delegates.cs}
 \end{frame}
 
 \begin{frame}{Delegates - Vergleich Java}
@@ -353,7 +359,12 @@ Derived, example 3
 	\end{itemize}
 \end{frame}
 
-
+%-------------------------
+% 		Events			-
+%-------------------------
+\begin{frame}{Events}
+	events
+\end{frame}
 
 %-------------------------
 % 		Quellen	    		-
