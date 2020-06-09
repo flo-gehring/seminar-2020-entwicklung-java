@@ -31,7 +31,27 @@ bgcolor=white,
 linenos=true,
 numberblanklines=true,
 numbersep=3pt,
-gobble=0,
+autogobble=true,
+frame=leftline,
+framerule=0.pt,
+framesep=1mm,
+funcnamehighlighting=true,
+tabsize=4,
+obeytabs=false,
+mathescape=false
+samepage=false, %with this setting you can force the list to appear on the same page
+showspaces=false,
+showtabs =false,
+texcl=false,
+fontsize=\small
+}
+
+\newmintedfile[javacode]{java}{
+bgcolor=white,
+linenos=true,
+numberblanklines=true,
+numbersep=3pt,
+autogobble=true,
 frame=leftline,
 framerule=0.pt,
 framesep=1mm,
@@ -224,6 +244,69 @@ Derived, example 3
 
 \end{frame}
 
+%---------------------
+% 		Generics		-
+%---------------------
+
+\begin{frame}{Generics}
+
+	\begin{enumerate}
+		\item Syntax vorstellen
+	\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}{Java Konzept: Type Erasure}
+\begin{itemize}
+	\item Java unterstützt auf Bytecode Ebene keine Generics
+	\begin{enumerate}
+		\item Keine generischen Typinformationen zur Laufzeit
+	\end{enumerate}
+	\item Generisches Argument wird durch möglichst spezifischen Typ ersetzt
+	\begin{enumerate}
+		\item \glqq Raw Types\grqq
+	\end{enumerate}
+
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Type Erasure: Methoden}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{bilder/java_type_erasure.png}
+	\end{figure}
+	\csharpcode[firstline=2, lastline=8]{Beispielcode/GenericSort.cs}
+\end{frame}
+
+\begin{frame}{Type Erasure: Typen Generischer Klassen}
+	Java
+	\javacode[firstline=12, lastline=18]{Beispielcode/test/GenericTest.java}
+	$C\#$
+	\csharpcode[firstline=10, lastline=14]{Beispielcode/GenericSort.cs}
+\end{frame}
+
+\begin{frame}{Type Erasure: Objekt Instanziierung}
+	Java
+	\javacode[firstline=27, lastline=35]{Beispielcode/test/GenericTest.java}
+	$C\#$
+	\csharpcode[firstline=20, lastline=22]{Beispielcode/GenericSort.cs}
+\end{frame}
+
+\begin{frame}{Type Erasure: Statische Methoden}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{bilder/java_no_static_methods.png}
+	\end{figure}
+	
+	$C\#$
+	\csharpcode[firstline=25, lastline=40,fontsize=\tiny]{Beispielcode/GenericSort.cs}
+\end{frame}
+
+%-------------------------
+% 		Delegates		-
+%-------------------------
+
 % Delegates
 \begin{frame}{Delegates}
 \begin{itemize}
@@ -266,9 +349,15 @@ Derived, example 3
 		\end{itemize}
 		\item Wieder weniger explizit
 		\item Man sieht nicht am Datentyp, dass es sich um eine Funktion handelt
-
+		\item Vgl. Vortrag letztes Mal: \glqq Real Function Types\grqq
 	\end{itemize}
 \end{frame}
+
+
+
+%-------------------------
+% 		Quellen	    		-
+%-------------------------
 
 \begin{frame}{Quellen}
 \begin{thebibliography}{99}
@@ -280,6 +369,8 @@ Derived, example 3
  \bibitem{so_var_java}'"What is the equivalent of the C\# 'var' keyword in Java?"', 
  \url{https://stackoverflow.com/a/49598148}, 05.06.2020
  \bibitem{interview_virtual}'Interview with C\# Designer', \url{https://www.artima.com/intv/nonvirtual.html}, 06.06.2020
+ \bibitem{java_generics} 'Java Generics' \url{https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html}, 08.06.2020
+ \bibitem{blog_vgl_generics} 'Blogpost C\# / Java Generics', \url{http://www.jprl.com/Blog/archive/development/2007/Aug-31.html}, 09.06.2020
 \end{thebibliography}
 \end{frame}
 \end{document}

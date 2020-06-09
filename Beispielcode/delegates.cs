@@ -36,7 +36,7 @@ class DelegateDemonstration {
         DelegMult as_param = param;
         DelegMult named_function = new DelegMult(TimesTwo);
         DelegMult anonymous_function =  delegate(float f) 
-                { return (int) 2 * f; };
-        DelegMult lambda = (f) => {(int) 2 * f;};
+                { return 2 * (int) f; };
+        DelegMult lambda = (f) => { return 2 * (int)f;};
     }
 }
