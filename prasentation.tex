@@ -193,6 +193,25 @@ System.Int32 -> System.ValueType -> System.Object
 
 \end{frame}
 
+\begin{frame}{Indexer, Properties, Discards}
+	\begin{itemize}
+		\item Indexer
+		\begin{itemize}
+			\item Array Ähnlicher Zugriff
+		\end{itemize}
+		\item Properties 
+		\begin{itemize}
+			\item Zugriff wie Felder, aber es wird Code ausgeführt. 
+			\item Rückgabewert könnte berechnet werden
+			\item Unterschiedliche Sichtbarkeit für \glqq get\grqq{} und \glqq set\grqq
+		\end{itemize}
+		\item Discards 
+		\begin{itemize}
+			\item Kann einzelne Werte in einem zurückgegebenen Tupel verwerfen.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{Vererbung}
 	Klassen \texttt{Base} und \texttt{Derived} mit den Methoden \texttt{ex1, ex2, ex3}.
 	\csharpcode[fontsize=\tiny, firstline=1, lastline=28]{Beispielcode/csharp/classes.cs}
@@ -305,7 +324,16 @@ Derived, example 3
 
 \begin{frame}{Generics - Reflection}
 \begin{itemize}
-	\item Java: No 
+	\item Java 
+	\begin{itemize}
+		\item Es ist trotz Type Erasure teilweise möglich mithilfe von \texttt{java.lang.reflection} während der Laufzeit auf die Parametrisierten Typen zuzugreifen. 
+		\item \glqq Umweg\grqq{} über Superclass
+		\item Andere Möglichkeit: Bei Konstruktion immer Klasse mit übergeben.
+	\end{itemize}
+	\item C\# 
+	\begin{itemize}
+		\item Besserer Unterstützung für generische Reflektion
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -359,6 +387,17 @@ Derived, example 3
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Delegates, Lambdas and Expression Trees}
+	\begin{itemize}
+		\item \glqq An expression tree is a data structure that represents some code \grqq{}
+		\item Baumstruktur die einen Ausdruck Repärsentiert. 
+		\item Methoden, Delegate oder Lambda Ausdrücke als Knoten
+		\item Verbinde Knoten zu Baum
+		\item[$\rightarrow$] Kann dynamisch zur Laufzeit erstellt werden
+		\item Ganzer Baum kann in ausführbaren Code übersetzt werden
+	\end{itemize}
+\end{frame}
+
 %-------------------------
 % 		Events			-
 %-------------------------
@@ -382,6 +421,7 @@ Derived, example 3
  \bibitem{interview_virtual}'Interview with C\# Designer', \url{https://www.artima.com/intv/nonvirtual.html}, 06.06.2020
  \bibitem{java_generics} 'Java Generics' \url{https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html}, 08.06.2020
  \bibitem{blog_vgl_generics} 'Blogpost C\# / Java Generics', \url{http://www.jprl.com/Blog/archive/development/2007/Aug-31.html}, 09.06.2020
+ \bibitem{java_reflection_get_types} 'SO: Get Actual Types', \url{https://stackoverflow.com/a/5684761},09.06.2020
 \end{thebibliography}
 \end{frame}
 \end{document}

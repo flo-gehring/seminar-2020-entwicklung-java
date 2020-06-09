@@ -35,9 +35,18 @@ class GenericTest<T, U> {
     }
 
     
-
+    /*
     public static void statMethod(T param) {
 
+    }
+    */
+
+    public T getTMember() {
+        return tMember;
+    }
+
+    public U getUMember() {
+        return uMember;
     }
 
 }

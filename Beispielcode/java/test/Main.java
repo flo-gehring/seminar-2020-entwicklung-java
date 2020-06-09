@@ -7,11 +7,13 @@ public class Main {
 
     
     public static void main(String[] args) {
-        
+        System.out.println("Test");
+        GenericReflection.init();
+/*
         GenericTest<Integer, String> gt = new GenericTest<Integer,String>();
         List<Integer> list = new ArrayList<Integer>(1);
         list.add(1);
-        gt.testMethod(list);
+        GenericTest.genericListType(list);
 
         DemoFunctionalInterface dfi = new DemoFunctionalInterface() {
             public int demo(float f) {
@@ -22,7 +24,7 @@ public class Main {
         System.out.println(dfi.demo(2.498f));
         System.out.println(lambda.demo(2.498f));
 
-
+*/
     }
 
 }
