@@ -1,0 +1,1 @@
+class Generics<T extends Number, U super Integer>

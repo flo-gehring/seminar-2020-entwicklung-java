@@ -267,30 +267,74 @@ Derived, example 3
 % 		Generics		-
 %---------------------
 
-\begin{frame}{Generics}
+\begin{frame}{Generics - C\#}
+	Deklarierung der Generischen Klasse: \\
+	\csharpcode[firstline=2, lastline=2]{Beispielcode/csharp/GenericSort.cs}
+	Instanziierung von Variablen: \\
+	\csharpcode[]{Beispielcode/csharp/GenericDemo.cs}
+\end{frame}
 
-	\begin{enumerate}
-		\item Syntax vorstellen
-	\end{enumerate}
+\begin{frame}{Generics - C\# - Einschränkungen Typparameter}
+	\csharpcode[firstline=2, lastline=11]{Beispielcode/scraps/generics-1.cs}
+\end{frame}
 
+\begin{frame}{Generics - C\# - Methoden}
+	\csharpcode[firstline=13, lastline=18]{Beispielcode/scraps/generics-1.cs}
+\end{frame}
+
+
+\begin{frame}{Generics - Java}
+	\javacode{Beispielcode/java/GenericDemo.java}
+\end{frame}
+
+\begin{frame}{Generics - Subtyping - Java}
+	\javacode{Beispielcode/java/Box.java}
+	\javacode[firstline=6, lastline=9]{Beispielcode/java/BoxDemo.java}
+\end{frame}
+
+\begin{frame}{Generics - Subtyping - Java}
+	\begin{figure}
+			\includegraphics[width=0.66\textwidth]{bilder/generics-subtypeRelationship.png}
+			\caption{Subtype Relationship \cite{java_generics_inheritance}}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Covariance and Contravariance}
+	\begin{itemize}
+		\item \glqq Covariance and contravariance are terms that refer to the ability to use a more derived type (more specific) or a less derived type (less specific) than originally specified.\grqq{} \cite{csharp_docs_variance}
+		\item Covariante Typparameter  sehen wie \glqq gewöhnlicher\grqq{} Polymorphismus aus.
+	\end{itemize}
+		\csharpcode[firstline=21, lastline=22]{Beispielcode/scraps/generics-1.cs}
+
+		%\csharpcode[firstline=21, lastline=22]{Beispielcode/scraps/generics-1.cs}
+\end{frame}
+
+
+\begin{frame}{Generics - Wildcards - Java}
+		Wildcards mit upper (\texttt{extends}) oder lower (\texttt{super}) Bound. \texttt{extends} gilt auch für implementierte Interfaces.
+		\javacode[firstline=11, lastline=12]{Beispielcode/java/BoxDemo.java}
+		Anwendungsbeispiel:
+		\javacode[firstline=15, lastline=21]{Beispielcode/java/BoxDemo.java}
 \end{frame}
 
 
 \begin{frame}{Java Konzept: Type Erasure}
-\begin{itemize}
+	\begin{itemize}
 	\item Java unterstützt auf Bytecode Ebene keine Generics
 	\begin{enumerate}
 		\item Keine generischen Typinformationen zur Laufzeit
 	\end{enumerate}
 	\item Generisches Argument wird durch möglichst spezifischen Typ ersetzt
-	\begin{enumerate}
-		\item \glqq Raw Types\grqq
-	\end{enumerate}
-
-\end{itemize}
+	\end{itemize}
+	\javacode{Beispielcode/scraps/type_erasure.java}
 \end{frame}
 
 
+
+
+%-------------------------------------
+% 		Type Erasure Konsequenzen 	-
+%-------------------------------------
 
 \begin{frame}{Type Erasure: Methoden}
 	\begin{figure}
@@ -398,12 +442,6 @@ Derived, example 3
 	\end{itemize}
 \end{frame}
 
-%-------------------------
-% 		Events			-
-%-------------------------
-\begin{frame}{Events}
-	events
-\end{frame}
 
 %-------------------------
 % 		Quellen	    		-
@@ -421,7 +459,10 @@ Derived, example 3
  \bibitem{interview_virtual}'Interview with C\# Designer', \url{https://www.artima.com/intv/nonvirtual.html}, 06.06.2020
  \bibitem{java_generics} 'Java Generics' \url{https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html}, 08.06.2020
  \bibitem{blog_vgl_generics} 'Blogpost C\# / Java Generics', \url{http://www.jprl.com/Blog/archive/development/2007/Aug-31.html}, 09.06.2020
- \bibitem{java_reflection_get_types} 'SO: Get Actual Types', \url{https://stackoverflow.com/a/5684761},09.06.2020
+ \bibitem{java_reflection_get_types} 'SO: Get Actual Types', \url{https://stackoverflow.com/a/5684761}, 09.06.2020
+ \bibitem{java_generics_inheritance} 'Java Generics: Inheritance', \url{https://docs.oracle.com/javase/tutorial/java/generics/inheritance.html}
+ \bibitem{csharp_docs_variance} 'Covariance and Contravariance', \url{https://docs.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance}, 13.06.2020
+
 \end{thebibliography}
 \end{frame}
 \end{document}
