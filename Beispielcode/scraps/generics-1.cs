@@ -20,3 +20,5 @@ public static void printGreaterIf<T> (T toPrint, T  check)
 
 IEnumerable<Derived> d = new List<Derived>();
 IEnumerable<Base> b = d;
+
+public delegate R DVariant<in A, out R>(A a);  

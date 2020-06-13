@@ -309,6 +309,20 @@ Derived, example 3
 		%\csharpcode[firstline=21, lastline=22]{Beispielcode/scraps/generics-1.cs}
 \end{frame}
 
+\begin{frame}{Contravariance (1)}
+\tiny{
+\texttt{Circle} implementiert \texttt{Shape}. \texttt{IComparer<T>} ist als Contravariant markiert.}
+\csharpcode[fontsize=\tiny, lastline=24]{Beispielcode/csharp/ContravariantDemo.cs}
+Beispiel von \cite{csharp_example_contravariance}
+\end{frame}
+
+\begin{frame}{Contravariance (2)}
+\tiny{
+\texttt{Circle} implementiert \texttt{Shape}. \texttt{IComparer<T>} ist als Contravariant markiert.}
+\csharpcode[fontsize=\tiny, firstline=17, lastline=43]{Beispielcode/csharp/ContravariantDemo.cs}
+Beispiel von \cite{csharp_example_contravariance}
+\end{frame}
+
 
 \begin{frame}{Generics - Wildcards - Java}
 		Wildcards mit upper (\texttt{extends}) oder lower (\texttt{super}) Bound. \texttt{extends} gilt auch für implementierte Interfaces.
@@ -416,6 +430,18 @@ Derived, example 3
 	\csharpcode[firstline=20, lastline=33]{Beispielcode/csharp/delegates.cs}
 \end{frame}
 
+\begin{frame}{Varianz in Delegaten}
+	\begin{itemize}
+	 	\item Ein Delegat-Typ akzeptiert auch Delegate mit:
+	 	\begin{itemize}
+	 		\item \glqq More Derived Types\grqq{} als Rückgabewert (Covarianz)
+	 		\item \glqq Less Derived Types\grqq{} als Parameter (Contravarianz)
+	 		\item Implizite Konvertierung, falls \texttt{in} bzw. \texttt{out} Keyword vorhanden
+	 	\end{itemize}
+	\end{itemize}
+	\csharpcode[firstline=24, lastline=24]{Beispielcode/scraps/generics-1.cs}
+\end{frame}
+
 \begin{frame}{Delegates - Vergleich Java}
 	\begin{itemize}
 		\item Java: Functional Interfaces
@@ -462,7 +488,7 @@ Derived, example 3
  \bibitem{java_reflection_get_types} 'SO: Get Actual Types', \url{https://stackoverflow.com/a/5684761}, 09.06.2020
  \bibitem{java_generics_inheritance} 'Java Generics: Inheritance', \url{https://docs.oracle.com/javase/tutorial/java/generics/inheritance.html}
  \bibitem{csharp_docs_variance} 'Covariance and Contravariance', \url{https://docs.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance}, 13.06.2020
-
+ \bibitem{csharp_example_contravariance} 'Beispiel Contravariance', \url{https://docs.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance}, 13.06.2020
 \end{thebibliography}
 \end{frame}
 \end{document}
