@@ -2,7 +2,7 @@ package test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
+import java.util.*;
 
 class GenericTest<T, U> {
 
@@ -47,6 +47,29 @@ class GenericTest<T, U> {
 
     public U getUMember() {
         return uMember;
+    }
+
+    public static void varianceBehavior() {
+        Object no; 
+        Number n;
+        Integer ni;
+        
+        ArrayList<? super Number> nl = new ArrayList<Object>();
+        nl.add((Number) 1);
+        nl.add((Integer)1);
+        // nl.add(new Object());
+        no = nl.get(0);
+        // n = nl.get(0);
+        // ni = (Integer) nl.get(0);
+
+        ArrayList<? extends Number> il = new ArrayList<Integer>();
+        // il.add((Integer) 1);
+        // il.add((Number) 1);
+        // il.add(new Object());
+        no = il.get(0);
+        n = il.get(0);
+        // ni = il.get(0);
+
     }
 
 }

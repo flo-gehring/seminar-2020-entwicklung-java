@@ -26,8 +26,10 @@
 \setlist{parsep=3em}
 \setlist{label=\textbullet}
 
+\definecolor{java}{rgb}{1, 0.94, 0.8}
+
 \newmintedfile[csharpcode]{csharp}{
-bgcolor=white,
+bgcolor=lightgray,
 linenos=true,
 numberblanklines=true,
 numbersep=3pt,
@@ -47,7 +49,7 @@ fontsize=\small
 }
 
 \newmintedfile[javacode]{java}{
-bgcolor=white,
+bgcolor=java,
 linenos=true,
 numberblanklines=true,
 numbersep=3pt,
@@ -79,18 +81,53 @@ fontsize=\small
 
 % Hello World Frame
 \begin{frame}{Hello, World!}
-\csharpcode{Beispielcode/csharp/hello_world.cs}
+\csharpcode{Beispielcode/scraps/hello_world.cs}
 %\lstinputlisting{Beispielcode/hello_world.cs}
 Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotnet/csharp/tour-of-csharp/}{Tour of C\#}
 
 \end{frame}
 
 
-\begin{frame}{Geschichte}
-\begin{itemize}
-	\item Von Microsoft Entwickelt
-	\item \glqq Direkter Konkurent\grqq{} zu Java
-\end{itemize}
+\begin{frame}{Entwicklungsgeschichte}
+	\begin{itemize}
+		\item Entwicklung seit 2000 von Microsoft
+		\item C\#-Version History von Microsoft:\cite{csharp_history}
+		\begin{itemize}
+					\item \glqq When you go back and look, C\# version 1.0, released with Visual Studio .NET 2002, looked a lot like Java.\grqq{}
+		 \item \glqq C\# version 1.0 was a viable alternative to Java on the Windows platform.\grqq{}
+		 \item \glqq And yet, C\# continued to play a bit of catch-up with Java. Java had already released versions that included generics and iterators.\grqq{} (Version 2.0)
+		 \item \glqq With version 3.0, C\# had moved the language firmly out from the shadow of Java and into prominence.\grqq{} (Ende 2007)
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Ausführung}
+
+	\begin{itemize}
+		\item Virtuelle Maschine, wird zu Zwischencode kompiliert
+		\item Spezifiziert durch  Common Language Infrastructure Standard
+		\begin{itemize}
+			\item Implementierung durch .NET, .NET Core und Mono 
+			\item[$\rightarrow$] CLR (Common Language Runtime)
+		\end{itemize}
+	\end{itemize}
+	
+	\setlength{\columnseprule}{0.4pt}
+	\begin{multicols}{2}
+		Java \\
+		\begin{itemize}
+			\item Java Virtual Machine (JVM)
+			\item Bytecode
+		\end{itemize}
+
+		\columnbreak
+
+		C\#\\
+		\begin{itemize}
+			\item Common Language Runtime (CLR)
+			\item Common Intermediate Language (CIL)
+		\end{itemize}
+	\end{multicols}
 \end{frame}
 
 
@@ -142,10 +179,8 @@ Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotn
 
 
 \begin{frame}{Werttypen}
-\csharpcode[firstline=6, lastline=20, fontsize=\footnotesize]{Beispielcode/csharp/typesystem.cs}
-System.Int32 \\ %\lstinputlisting[linerange={6-20}]{Beispielcode/typesystem.cs}
-Int32 CompareTo(System.Object) Int32 CompareTo(Int32) ... \\
-System.Int32 -> System.ValueType -> System.Object
+\csharpcode[firstline=6, lastline=15, fontsize=\footnotesize]{Beispielcode/csharp/typesystem.cs}System.Int32 \\ %\lstinputlisting[linerange={6-20}]{Beispielcode/typesystem.cs}
+System.Int32 -> System.ValueType -> System.Object ->
 \end{frame}
 
 
@@ -155,7 +190,7 @@ System.Int32 -> System.ValueType -> System.Object
 		\item Zwar automatische Konvertierung, aber int ist kein Objekt
 		\item Auskommentierte Zeilen führen zu Fehlern
 	\end{itemize}
-	\javacode[firstline=9, lastline=15]{Beispielcode/java/test/test.java}
+	\javacode[firstline=9, lastline=14]{Beispielcode/java/test/test.java}
 	
 \end{frame}
 
@@ -215,34 +250,27 @@ System.Int32 -> System.ValueType -> System.Object
 \begin{frame}{Vererbung}
 	Klassen \texttt{Base} und \texttt{Derived} mit den Methoden \texttt{ex1, ex2, ex3}.
 	\csharpcode[fontsize=\tiny, firstline=1, lastline=28]{Beispielcode/csharp/classes.cs}
-%	\csharpcode[fontsize=\tiny, firstline=13, lastline=28]{Beispielcode/classes.cs}
-	% \lstinputlisting[basicstyle=\tiny,linerange={1-28}]{Beispielcode/classes.cs}
 \end{frame}
 
 \begin{frame}{Vererbung}
 	\begin{columns}
 		\begin{column}{0.7\textwidth}
-				\csharpcode[firstline=31,lastline=48, fontsize=\footnotesize]{Beispielcode/csharp/classes.cs}
+				\csharpcode[firstline=32,lastline=47, fontsize=\footnotesize]{Beispielcode/csharp/classes.cs}
 		\end{column}
 		\begin{column}{0.3\textwidth}
-		Ausgabe: \\
+		Ausgabe: \medskip\\
 Base, example 1\\
 Base, example 1\\
-Derived, example 1\\
+Derived, example 1 \medskip\\
 Base, example 2\\
 Derived, example 2\\
-Derived, example 2\\
+Derived, example 2\medskip\\
 Base, example 3\\
 Base, example 3\\
-Derived, example 3
-			
+Derived, example 3			
 		\end{column}
-	
-
 	\end{columns}
-
 	% \lstinputlisting[basicstyle=\tiny,linerange={30-41}]{Beispielcode/classes.cs}
-
 \end{frame}
 
 \begin{frame}{Vererbung - Vergleich Java}
@@ -303,8 +331,10 @@ Derived, example 3
 	\begin{itemize}
 		\item \glqq Covariance and contravariance are terms that refer to the ability to use a more derived type (more specific) or a less derived type (less specific) than originally specified.\grqq{} \cite{csharp_docs_variance}
 		\item Covariante Typparameter  sehen wie \glqq gewöhnlicher\grqq{} Polymorphismus aus.
-	\end{itemize}
 		\csharpcode[firstline=21, lastline=22]{Beispielcode/scraps/generics-1.cs}
+		\item Contravariant nicht allgemein möglich
+		\csharpcode[firstline=26, lastline=27]{Beispielcode/scraps/generics-1.cs}
+	\end{itemize}
 
 		%\csharpcode[firstline=21, lastline=22]{Beispielcode/scraps/generics-1.cs}
 \end{frame}
@@ -319,16 +349,35 @@ Beispiel von \cite{csharp_example_contravariance}
 \begin{frame}{Contravariance (2)}
 \tiny{
 \texttt{Circle} implementiert \texttt{Shape}. \texttt{IComparer<T>} ist als Contravariant markiert.}
-\csharpcode[fontsize=\tiny, firstline=17, lastline=43]{Beispielcode/csharp/ContravariantDemo.cs}
+\csharpcode[fontsize=\tiny, firstline=17, lastline=41]{Beispielcode/csharp/ContravariantDemo.cs}
 Beispiel von \cite{csharp_example_contravariance}
 \end{frame}
 
+
+\begin{frame}{C\# - Variante Interfaces}
+	\csharpcode[fontsize=\tiny]{Beispielcode/csharp/variant_interfaces.cs}
+\end{frame}
+
+
+\begin{frame}{C\# - Invariant Classes}
+	\csharpcode[firstline=5, lastline=14]{Beispielcode/csharp/invariant_classes.cs}
+\end{frame}
 
 \begin{frame}{Generics - Wildcards - Java}
 		Wildcards mit upper (\texttt{extends}) oder lower (\texttt{super}) Bound. \texttt{extends} gilt auch für implementierte Interfaces.
 		\javacode[firstline=11, lastline=12]{Beispielcode/java/BoxDemo.java}
 		Anwendungsbeispiel:
 		\javacode[firstline=15, lastline=21]{Beispielcode/java/BoxDemo.java}
+\end{frame}
+
+\begin{frame}{Generics - Wildcards - Java}
+
+		\javacode[fontsize=\tiny, firstline=53, lastline=55]{Beispielcode/java/test/GenericTest.java}
+		Contravaiant (\glqq in\grqq{}) Write-Only
+				\javacode[fontsize=\tiny, firstline=57, lastline=63]{Beispielcode/java/test/GenericTest.java}
+	Covariant (\glqq out\grqq{}) Read-Only
+		\javacode[fontsize=\tiny, firstline=65, lastline=71]{Beispielcode/java/test/GenericTest.java}
+
 \end{frame}
 
 
@@ -489,6 +538,7 @@ Beispiel von \cite{csharp_example_contravariance}
  \bibitem{java_generics_inheritance} 'Java Generics: Inheritance', \url{https://docs.oracle.com/javase/tutorial/java/generics/inheritance.html}
  \bibitem{csharp_docs_variance} 'Covariance and Contravariance', \url{https://docs.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance}, 13.06.2020
  \bibitem{csharp_example_contravariance} 'Beispiel Contravariance', \url{https://docs.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance}, 13.06.2020
+\bibitem{csharp_history} 'C\# Geschichte', \url{https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history}, 15.06.2020
 \end{thebibliography}
 \end{frame}
 \end{document}

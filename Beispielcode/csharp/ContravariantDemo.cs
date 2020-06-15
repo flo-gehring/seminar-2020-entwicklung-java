@@ -32,13 +32,11 @@ class Program
         // IComparer<Circle>, because type parameter T of IComparer<T> is
         // contravariant.
         SortedSet<Circle> circlesByArea =
-            new SortedSet<Circle>(new ShapeAreaComparer())
+            new SortedSet<Circle>(
+                // IComparer<Shape>
+                new ShapeAreaComparer()) 
+                // Beispielwerte
                 { new Circle(7.2), new Circle(100), null, new Circle(.01) };
-
-        foreach (Circle c in circlesByArea)
-        {
-            Console.WriteLine(c == null ? "null" : "Circle with area " + c.Area);
-        }
     }
 }
 
