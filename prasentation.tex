@@ -71,8 +71,12 @@ fontsize=\small
 
 \begin{document}
 \setminted{linenos}
+
 \begin{frame}
-\titlepage
+	\titlepage
+	\begin{center}
+		\tiny{\url{https://github.com/flo-gehring/seminar-2020-entwicklung-java/} }
+	\end{center}
 \end{frame}
 
 %\begin{frame}
@@ -81,10 +85,7 @@ fontsize=\small
 
 % Hello World Frame
 \begin{frame}{Hello, World!}
-\csharpcode{Beispielcode/scraps/hello_world.cs}
-%\lstinputlisting{Beispielcode/hello_world.cs}
-Dieses und viele folgende Beispiele: \href{https://docs.microsoft.com/de-de/dotnet/csharp/tour-of-csharp/}{Tour of C\#}
-
+	\csharpcode{Beispielcode/scraps/hello_world.cs}
 \end{frame}
 
 
@@ -190,7 +191,7 @@ System.Int32 -> System.ValueType -> System.Object ->
 		\item Zwar automatische Konvertierung, aber int ist kein Objekt
 		\item Auskommentierte Zeilen führen zu Fehlern
 	\end{itemize}
-	\javacode[firstline=9, lastline=14]{Beispielcode/java/test/test.java}
+	\javacode[firstline=8, lastline=14]{Beispielcode/java/test/test.java}
 	
 \end{frame}
 
@@ -228,7 +229,7 @@ System.Int32 -> System.ValueType -> System.Object ->
 
 \end{frame}
 
-\begin{frame}{Indexer, Properties, Discards}
+\begin{frame}{Indexer, Properties}
 	\begin{itemize}
 		\item Indexer
 		\begin{itemize}
@@ -239,10 +240,6 @@ System.Int32 -> System.ValueType -> System.Object ->
 			\item Zugriff wie Felder, aber es wird Code ausgeführt. 
 			\item Rückgabewert könnte berechnet werden
 			\item Unterschiedliche Sichtbarkeit für \glqq get\grqq{} und \glqq set\grqq
-		\end{itemize}
-		\item Discards 
-		\begin{itemize}
-			\item Kann einzelne Werte in einem zurückgegebenen Tupel verwerfen.
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -320,33 +317,33 @@ Derived, example 3
 	\javacode[firstline=6, lastline=9]{Beispielcode/java/BoxDemo.java}
 \end{frame}
 
-\begin{frame}{Generics - Subtyping - Java}
+\begin{frame}{Generics - Subtyping}
 	\begin{figure}
 			\includegraphics[width=0.66\textwidth]{bilder/generics-subtypeRelationship.png}
 			\caption{Subtype Relationship \cite{java_generics_inheritance}}
 	\end{figure}
 \end{frame}
 
-\begin{frame}{Covariance and Contravariance}
+\begin{frame}{Covarianz und Contravarianz}
 	\begin{itemize}
 		\item \glqq Covariance and contravariance are terms that refer to the ability to use a more derived type (more specific) or a less derived type (less specific) than originally specified.\grqq{} \cite{csharp_docs_variance}
 		\item Covariante Typparameter  sehen wie \glqq gewöhnlicher\grqq{} Polymorphismus aus.
 		\csharpcode[firstline=21, lastline=22]{Beispielcode/scraps/generics-1.cs}
-		\item Contravariant nicht allgemein möglich
+		\item Contravarianz nicht allgemein möglich
 		\csharpcode[firstline=26, lastline=27]{Beispielcode/scraps/generics-1.cs}
 	\end{itemize}
 
 		%\csharpcode[firstline=21, lastline=22]{Beispielcode/scraps/generics-1.cs}
 \end{frame}
 
-\begin{frame}{Contravariance (1)}
+\begin{frame}{Contravarianz (1)}
 \tiny{
 \texttt{Circle} implementiert \texttt{Shape}. \texttt{IComparer<T>} ist als Contravariant markiert.}
 \csharpcode[fontsize=\tiny, lastline=24]{Beispielcode/csharp/ContravariantDemo.cs}
 Beispiel von \cite{csharp_example_contravariance}
 \end{frame}
 
-\begin{frame}{Contravariance (2)}
+\begin{frame}{Contravarianz (2)}
 \tiny{
 \texttt{Circle} implementiert \texttt{Shape}. \texttt{IComparer<T>} ist als Contravariant markiert.}
 \csharpcode[fontsize=\tiny, firstline=17, lastline=41]{Beispielcode/csharp/ContravariantDemo.cs}
@@ -359,21 +356,24 @@ Beispiel von \cite{csharp_example_contravariance}
 \end{frame}
 
 
-\begin{frame}{C\# - Invariant Classes}
+\begin{frame}{C\# - Invariante Klassen}
+	Erinnerung: 
+	\csharpcode[firstline=4, lastline=4]{Beispielcode/csharp/variant_interfaces.cs}
+	Variablen die eine Klasse als Typ haben sind invariant:
 	\csharpcode[firstline=5, lastline=14]{Beispielcode/csharp/invariant_classes.cs}
 \end{frame}
 
-\begin{frame}{Generics - Wildcards - Java}
+\begin{frame}{Varianz in Java: Wildcards}
 		Wildcards mit upper (\texttt{extends}) oder lower (\texttt{super}) Bound. \texttt{extends} gilt auch für implementierte Interfaces.
 		\javacode[firstline=11, lastline=12]{Beispielcode/java/BoxDemo.java}
 		Anwendungsbeispiel:
 		\javacode[firstline=15, lastline=21]{Beispielcode/java/BoxDemo.java}
 \end{frame}
 
-\begin{frame}{Generics - Wildcards - Java}
+\begin{frame}{Wildcards}
 
 		\javacode[fontsize=\tiny, firstline=53, lastline=55]{Beispielcode/java/test/GenericTest.java}
-		Contravaiant (\glqq in\grqq{}) Write-Only
+		Contravariant (\glqq in\grqq{}) Write-Only
 				\javacode[fontsize=\tiny, firstline=57, lastline=63]{Beispielcode/java/test/GenericTest.java}
 	Covariant (\glqq out\grqq{}) Read-Only
 		\javacode[fontsize=\tiny, firstline=65, lastline=71]{Beispielcode/java/test/GenericTest.java}
@@ -451,19 +451,19 @@ Beispiel von \cite{csharp_example_contravariance}
 % Delegates
 \begin{frame}{Delegates}
 \begin{itemize}
- 	\item \texttt{Delegates} sind Referenz\textbf{typen} (Objekte)
+ 	\item \texttt{Delegate} sind Referenz\textbf{typen} (Objekte)
  	\item Sie kapseln die Funktionalität einer (anonymen) Methode
  	\item Die Methode wird mittels des Delegats aufgerufen
 \end{itemize}
 \csharpcode[firstline=3, lastline=4]{Beispielcode/csharp/delegates.cs}
 	
 \end{frame}
-\begin{frame}{Delegates}
+\begin{frame}{Delegate}
 	Erstes Beispiel:
 	\csharpcode[firstline=4, lastline=18]{Beispielcode/csharp/delegates.cs}
 \end{frame}
 
-\begin{frame}{Delegates}
+\begin{frame}{Delegate}
 	Initialisierung Möglich als: Methode mit Namen, Anonyme Methode und Lambda Funktion
 	\csharpcode[firstline=35, lastline=41]{Beispielcode/csharp/delegates.cs}
 \end{frame}
@@ -471,12 +471,12 @@ Beispiel von \cite{csharp_example_contravariance}
 \begin{frame}{Delegates - Invocation List}
 	\begin{itemize}
 		\item  Eine Kombination von Delegaten ist möglich
-		\item Methoden \texttt{TimesTwo (d1)} und \texttt{TimesThree (d2)} werden nacheinander mit 2 aufgerufen
+		\item Methoden \texttt{TimesTwo (d1)} und \texttt{TimesThree} werden nacheinander mit 2 aufgerufen
 		\begin{itemize}
 			\item Delegatenaufruf gibt jetzt \texttt{void} zurück
 		\end{itemize}
 	\end{itemize}
-	\csharpcode[firstline=20, lastline=33]{Beispielcode/csharp/delegates.cs}
+	\csharpcode[firstline=27, lastline=30]{Beispielcode/csharp/delegates.cs}
 \end{frame}
 
 \begin{frame}{Varianz in Delegaten}
@@ -491,7 +491,7 @@ Beispiel von \cite{csharp_example_contravariance}
 	\csharpcode[firstline=24, lastline=24]{Beispielcode/scraps/generics-1.cs}
 \end{frame}
 
-\begin{frame}{Delegates - Vergleich Java}
+\begin{frame}{Delegate - Vergleich Java}
 	\begin{itemize}
 		\item Java: Functional Interfaces
 		\begin{itemize}
@@ -505,18 +505,6 @@ Beispiel von \cite{csharp_example_contravariance}
 		\item Vgl. Vortrag letztes Mal: \glqq Real Function Types\grqq
 	\end{itemize}
 \end{frame}
-
-\begin{frame}{Delegates, Lambdas and Expression Trees}
-	\begin{itemize}
-		\item \glqq An expression tree is a data structure that represents some code \grqq{}
-		\item Baumstruktur die einen Ausdruck Repärsentiert. 
-		\item Methoden, Delegate oder Lambda Ausdrücke als Knoten
-		\item Verbinde Knoten zu Baum
-		\item[$\rightarrow$] Kann dynamisch zur Laufzeit erstellt werden
-		\item Ganzer Baum kann in ausführbaren Code übersetzt werden
-	\end{itemize}
-\end{frame}
-
 
 %-------------------------
 % 		Quellen	    		-

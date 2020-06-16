@@ -22,16 +22,16 @@ class DelegateDemonstration {
         DelegMult d2 = TimesThree;
         multicast_delegates(d1, d2);
     }
-    public static void multicast_delegates(DelegMult d1,
-         DelegMult d2){
-     Console.WriteLine("Length of Invocation List: " 
-        +  d1.GetInvocationList().Length); // 1
-     d1 += d2; // d1 is now a MultiCast Delegate 
-     Console.WriteLine("Length of Invocation List: " 
-        + d1.GetInvocationList().Length); // 2
-     d1(2);
+    public static void multicast_delegates(DelegMult d5,
+         DelegMult d6){
+     DelegMult d1 = TimesTwo;
+     d1 += TimesThree; // d1 is now a MultiCast Delegate 
+     d1(2); // Call Both Methods. Returns void
+     d1 -= TimesThree; // Remove TimesThree from Multicast Delegate
     }
 
+    
+    
     public static void different_initializers(DelegMult param){
         DelegMult as_param = param;
         DelegMult named_function = new DelegMult(TimesTwo);
