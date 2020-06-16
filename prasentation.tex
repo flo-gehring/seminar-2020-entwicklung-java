@@ -16,6 +16,7 @@
 \usepackage{minted}
 \author{Florian Gehring}
 \title{Vergleich zu C\#}
+\subtitle{Entwicklung der Programmiersprache Java}
 %\setbeamercovered{transparent} 
 %\setbeamertemplate{navigation symbols}{} 
 %\logo{} 
@@ -75,7 +76,9 @@ fontsize=\small
 \begin{frame}
 	\titlepage
 	\begin{center}
+		Dozent: Prof. Plümicke\medskip \\
 		\tiny{\url{https://github.com/flo-gehring/seminar-2020-entwicklung-java/} }
+
 	\end{center}
 \end{frame}
 
@@ -136,48 +139,9 @@ fontsize=\small
 	\begin{figure}
 	\centering
 		\includegraphics[width=0.7\textwidth]{bilder/value-reference-types-common-type-system.png}
-		\caption{Type System in C\# \cite{progrguide}}
+		\caption{Common Type Systems (CTS) \cite{progrguide}}
 	\end{figure}
 \end{frame}
-
-\begin{frame}{Allgemeines Typsystem}
-\begin{itemize}
-% https://docs.microsoft.com/de-de/dotnet/csharp/programming-guide/types/
-	\item Stark Typisiert
-	\begin{itemize}
-		\item jede Konstante, Variable und jeder Ausdruck hat einen Typ
-	\end{itemize}
-	\item CTS (Common Type System)
-	\begin{itemize}
-		\item \textbf{Jeder} Typ ist von \texttt{System.Object} (\texttt{object}) abgeleitet
-	\end{itemize}
-
-	\item Integrierte Typen
-	\begin{itemize}
-		\item \glqq Zahlen\grqq{}, \texttt{boolean}, \texttt{char}, \texttt{object}, \texttt{string}
-	\end{itemize}
-	\item Referenztypen / Werttypen
-	\begin{itemize}
-		\item \texttt{System.ValueType}
-	\end{itemize}
-	\item Benutzerdefinierte Typen
-	\begin{itemize}
-		\item \texttt{class, enum, struct}
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Variablen Deklarationen}
-\csharpcode[firstline=5, lastline=16]{Beispielcode/csharp/variable_declaration.cs}
-
-%\lstinputlisting[linerange={1-2,5-16}]{Beispielcode/variable_declaration.cs}
-\begin{itemize}
-	\item \texttt{var} Keyword \cite{so_var_java}
-	\item LINQ
-\end{itemize}
-\end{frame}
-
 
 \begin{frame}{Werttypen}
 \csharpcode[firstline=6, lastline=15, fontsize=\footnotesize]{Beispielcode/csharp/typesystem.cs}System.Int32 \\ %\lstinputlisting[linerange={6-20}]{Beispielcode/typesystem.cs}
@@ -195,54 +159,26 @@ System.Int32 -> System.ValueType -> System.Object ->
 	
 \end{frame}
 
-
-\begin{frame}{Zusammenfassung Typen}
-% Create a line splitting two columns
-\setlength{\columnseprule}{0.4pt}
-\begin{multicols}{2}
-	Java \\
-	\begin{itemize}
-		\item Primitive Typen nicht von \texttt{Object} abgeleitet
-		\item Call-by-Value, Call-By-Reference
-		\item Wrapper-Klasse \texttt{Integer} für \texttt{int}
-	\end{itemize}
-
-\columnbreak
-
-	C\#\\
-	\begin{itemize}
-		\item Alles (auch \texttt{int}) von \texttt{object} abgeleitet
-		\item Zahlen, boolean sind \glqq{}Werttype\grqq{}
-		\item \texttt{int} kann mit \texttt{int?} Nullable gemacht werden
-	\end{itemize}
-\end{multicols}
-\end{frame}
-
-
 \begin{frame}{Klassen}
 
 	\begin{itemize}
 		\item Erben implizit von \texttt{object}
 		\item  Enthalten: \texttt{constructors}, \textbf{\texttt{properties}}, \texttt{indexers}, \texttt{events}, \texttt{operators} and \texttt{destructors}
-		 \item \texttt{sealed}-Modifier: Für die gesamte Klasse oder einzelne Methoden
-	\end{itemize}
-
+			\begin{itemize}
+				\item Indexer
+				\begin{itemize}
+					\item Array Ähnlicher Zugriff
+				\end{itemize}
+				\item Properties 
+				\begin{itemize}
+					\item Zugriff wie Felder, aber es wird Code ausgeführt. 
+					\item Rückgabewert könnte berechnet werden
+					\item Unterschiedliche Sichtbarkeit für \glqq get\grqq{} und \glqq set\grqq
+				\end{itemize}
+			\end{itemize}
+			 \item \texttt{sealed}-Modifier: Für die gesamte Klasse oder einzelne Methoden					\end{itemize}
 \end{frame}
 
-\begin{frame}{Indexer, Properties}
-	\begin{itemize}
-		\item Indexer
-		\begin{itemize}
-			\item Array Ähnlicher Zugriff
-		\end{itemize}
-		\item Properties 
-		\begin{itemize}
-			\item Zugriff wie Felder, aber es wird Code ausgeführt. 
-			\item Rückgabewert könnte berechnet werden
-			\item Unterschiedliche Sichtbarkeit für \glqq get\grqq{} und \glqq set\grqq
-		\end{itemize}
-	\end{itemize}
-\end{frame}
 
 \begin{frame}{Vererbung}
 	Klassen \texttt{Base} und \texttt{Derived} mit den Methoden \texttt{ex1, ex2, ex3}.
