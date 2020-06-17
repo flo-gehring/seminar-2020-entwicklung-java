@@ -49,6 +49,8 @@ texcl=false,
 fontsize=\small
 }
 
+
+
 \newmintedfile[javacode]{java}{
 bgcolor=java,
 linenos=true,
@@ -162,67 +164,24 @@ System.Int32 -> System.ValueType -> System.Object ->
 \begin{frame}{Klassen}
 
 	\begin{itemize}
-		\item Erben implizit von \texttt{object}
 		\item  Enthalten: \texttt{constructors}, \textbf{\texttt{properties}}, \texttt{indexers}, \texttt{events}, \texttt{operators} and \texttt{destructors}
-			\begin{itemize}
-				\item Indexer
-				\begin{itemize}
-					\item Array Ähnlicher Zugriff
-				\end{itemize}
-				\item Properties 
-				\begin{itemize}
-					\item Zugriff wie Felder, aber es wird Code ausgeführt. 
-					\item Rückgabewert könnte berechnet werden
-					\item Unterschiedliche Sichtbarkeit für \glqq get\grqq{} und \glqq set\grqq
-				\end{itemize}
-			\end{itemize}
-			 \item \texttt{sealed}-Modifier: Für die gesamte Klasse oder einzelne Methoden					\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Vererbung}
-	Klassen \texttt{Base} und \texttt{Derived} mit den Methoden \texttt{ex1, ex2, ex3}.
-	\csharpcode[fontsize=\tiny, firstline=1, lastline=28]{Beispielcode/csharp/classes.cs}
-\end{frame}
-
-\begin{frame}{Vererbung}
-	\begin{columns}
-		\begin{column}{0.7\textwidth}
-				\csharpcode[firstline=32,lastline=47, fontsize=\footnotesize]{Beispielcode/csharp/classes.cs}
-		\end{column}
-		\begin{column}{0.3\textwidth}
-		Ausgabe: \medskip\\
-Base, example 1\\
-Base, example 1\\
-Derived, example 1 \medskip\\
-Base, example 2\\
-Derived, example 2\\
-Derived, example 2\medskip\\
-Base, example 3\\
-Base, example 3\\
-Derived, example 3			
-		\end{column}
-	\end{columns}
-	% \lstinputlisting[basicstyle=\tiny,linerange={30-41}]{Beispielcode/classes.cs}
-\end{frame}
-
-\begin{frame}{Vererbung - Vergleich Java}
-	
-	\begin{itemize}
-		\item Java: Alle Methoden sind virtuell
+		\item Vererbung 
 		\begin{itemize}
-			\item Override wird mit \texttt{final} verhindert.
-			\item Kein Äquivalent zu C\# \texttt{new}
-		\end{itemize}
-		\item Java: \texttt{@Override} Dekorator soll Code lesbarer machen
-		\item In C\# Ingesamt expliziter als in Java
-		\begin{itemize}
+			\item Nicht alle Methoden virtuell
+			\item Können mit \texttt{virtual} Modifier virtuell werden
+			\item \texttt{new} und \texttt{override} Keyword 
 			\item Fokus auf Versionierung und Kompatibilität von Code
 			\item Für interessierte: Interview mit C\# Chefdesigner \cite{interview_virtual}
+			\item Java: Alle Methoden sind virtuell
+			\begin{itemize}
+				\item Override wird mit \texttt{final} verhindert.
+				\item Kein Äquivalent zu C\# \texttt{new}
+				\item \texttt{@Override} Dekorator
+			\end{itemize}
 		\end{itemize}
 	\end{itemize}
-
 \end{frame}
+
 
 %---------------------
 % 		Generics		-
