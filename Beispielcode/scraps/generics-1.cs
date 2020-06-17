@@ -1,5 +1,5 @@
 using System;
-class DemoClass1<T, U> 
+class GenericClass<T, U> 
     // T kann verglichen werden, 
     // ist von U abgeleitet
     // und hat einen parameterlosen Konstruktor
@@ -10,10 +10,12 @@ class DemoClass1<T, U>
         U uMember;
 }
 
-public static void printGreaterIf<T> (T toPrint, T  check) 
+class NonGenericClass {
+    public static void printGreaterIf<T> (T toPrint, T  check) 
                                         where T: IComparable {
-    if (toPrint.CompareTo(check) > 0){
-        System.Console.Write(toPrint);
+        if (toPrint.CompareTo(check) > 0){
+            System.Console.Write(toPrint);
+        }
     }
 }
 
