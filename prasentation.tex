@@ -164,20 +164,24 @@ System.Int32 -> System.ValueType -> System.Object ->
 \begin{frame}{Klassen}
 
 	\begin{itemize}
-		\item  Enthalten: \texttt{constructors}, \textbf{\texttt{properties}}, \texttt{indexers}, \texttt{events}, \texttt{operators} and \texttt{destructors}
-		\item Vererbung 
+		\item  Enthalten: \textbf{\texttt{properties}}, \texttt{indexers}, \texttt{events}, \texttt{operators}
+		\item Virtuelle Methoden bei Vererbung 
 		\begin{itemize}
-			\item Nicht alle Methoden virtuell
-			\item Können mit \texttt{virtual} Modifier virtuell werden
-			\item \texttt{new} und \texttt{override} Keyword 
-			\item Fokus auf Versionierung und Kompatibilität von Code
-			\item Für interessierte: Interview mit C\# Chefdesigner \cite{interview_virtual}
-			\item Java: Alle Methoden sind virtuell
+			\item Java
 			\begin{itemize}
 				\item Override wird mit \texttt{final} verhindert.
-				\item Kein Äquivalent zu C\# \texttt{new}
 				\item \texttt{@Override} Dekorator
 			\end{itemize}
+			\item C\#
+			\begin{itemize}
+				\item Nicht alle Methoden virtuell
+				\item Können mit \texttt{virtual} Modifier virtuell werden
+				\item \texttt{new} und \texttt{override} Keyword 
+				\item Fokus auf Versionierung und Kompatibilität von Code
+				\item Für interessierte: Interview mit C\# Chefdesigner \cite{interview_virtual}
+				\item Java: Alle Methoden sind virtuell
+			\end{itemize}
+			
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -224,7 +228,7 @@ System.Int32 -> System.ValueType -> System.Object ->
 		\item \glqq Covariance and contravariance are terms that refer to the ability to use a more derived type (more specific) or a less derived type (less specific) than originally specified.\grqq{} \cite{csharp_docs_variance}
 		\item Covariante Typparameter  sehen wie \glqq gewöhnlicher\grqq{} Polymorphismus aus.
 		\csharpcode[firstline=21, lastline=22]{Beispielcode/scraps/generics-1.cs}
-		\item Contravarianz nicht allgemein möglich
+		\item Contravarianz:
 		\csharpcode[firstline=26, lastline=27]{Beispielcode/scraps/generics-1.cs}
 	\end{itemize}
 
@@ -372,6 +376,12 @@ Beispiel von \cite{csharp_example_contravariance}
 		\end{itemize}
 	\end{itemize}
 	\csharpcode[firstline=27, lastline=30]{Beispielcode/csharp/delegates.cs}
+\end{frame}
+
+\begin{frame}{Java - Functional Interfaces}
+	\javacode{Beispielcode/java/DelegMult.java}
+	\javacode[firstline=3, lastline=12]{Beispielcode/java/UseFunction.java}
+
 \end{frame}
 
 \begin{frame}{Varianz in Delegaten}
