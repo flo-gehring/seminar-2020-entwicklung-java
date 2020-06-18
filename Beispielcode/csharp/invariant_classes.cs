@@ -2,15 +2,13 @@ class InvariantClassesDemo
 {
     public static void test() 
     {
-        // The interface is variant.
+        // Das Interface ist Variant.
         IVariant<Derived, Base> variant = new Variant<Derived, Base>();
         IVariant<Base, Derived> co_contra_variant = variant;
 
-        // The class is invariant.
+        // Klassenvariablen sind Invariant
         Variant<Derived, Base> invariant = new Variant<Derived, Base>();
-        // The following statement generates a compiler error
-        // because classes are invariant.
-        // Variant<Base, Derived> invariant2 = 
-        //    new Variant<Derived, Base>();
+        // Klassen sind invariant: 
+        // Variant<Base, Derived> invariant2 = invariant
     }
 }

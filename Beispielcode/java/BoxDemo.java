@@ -8,8 +8,8 @@ public class BoxDemo {
         // Subtype von Box<Number>
         // numberBox = new Box<Integer>();
 
-        Box<? extends Number> wildcardBox = new Box<Integer>();
-        Box<? super Integer> nBox = new Box<Number>();
+        Box<? extends Number> nBox = new Box<Integer>();
+        Box<? super Integer> iBox = new Box<Number>();
     }
    
     public static double sumOfList(List<? extends Number> list) {

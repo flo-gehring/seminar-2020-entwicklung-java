@@ -14,7 +14,7 @@ class Circle : Shape
     public override double Area { get { return Math.PI * r * r; }}
 }
 
-class ShapeAreaComparer : System.Collections.Generic.IComparer<Shape>
+class ShapeAreaComparer : IComparer<Shape>
 {
     int IComparer<Shape>.Compare(Shape a, Shape b)
     {
@@ -27,10 +27,8 @@ class Program
 {
     static void Main()
     {
-        // You can pass ShapeAreaComparer, which implements IComparer<Shape>,
-        // even though the constructor for SortedSet<Circle> expects
-        // IComparer<Circle>, because type parameter T of IComparer<T> is
-        // contravariant.
+        // SortedSet<Circle> erwartet IComparer<Circle>. IComparer ist Contravariant
+        // IComparer<Shape> zu übergeben ist also legal
         SortedSet<Circle> circlesByArea =
             new SortedSet<Circle>(
                 // IComparer<Shape>

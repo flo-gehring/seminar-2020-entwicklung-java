@@ -7,7 +7,7 @@ public class Main {
 
     
     public static void main(String[] args) {
-        virtualMethodBehave();
+        //virtualMethodBehave();
 /*
         GenericTest<Integer, String> gt = new GenericTest<Integer,String>();
         List<Integer> list = new ArrayList<Integer>(1);

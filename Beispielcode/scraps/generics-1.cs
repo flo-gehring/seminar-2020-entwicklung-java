@@ -25,5 +25,5 @@ IEnumerable<Base> b = d;
 
 public delegate R DVariant<in A, out R>(A a);  
 
-IComparer<Base> b = new BaseComparer();
+IComparer<Base> b = new BaseComparer(); // Implements IComparer<Base>
 IComparer<Derived> d = b;
