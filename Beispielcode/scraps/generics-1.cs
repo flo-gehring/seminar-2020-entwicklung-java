@@ -8,8 +8,10 @@ class GenericClass<T, U>
     where U : class {
         T tMember;
         U uMember;
+        Boolean comp<C>(C c) where C: IComparable<T> {
+            return c.CompareTo(t) < 0;
+        }
 }
-
 class NonGenericClass {
     public static void printGreaterIf<T> (T toPrint, T  check) 
                                         where T: IComparable {
@@ -18,8 +20,6 @@ class NonGenericClass {
         }
     }
 }
-
-
 IEnumerable<Derived> d = new List<Derived>();
 IEnumerable<Base> b = d;
 

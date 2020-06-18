@@ -1,7 +1,4 @@
-
-// T unbounded
-// U Number oder Unterklasse und implementiert Comparable
-public class GenericDemo<T, U extends Number & Comparable<U>>{
+public class GenericDemo<T extends  Comparable<T>, U >  {
 
     U uMember;
     // Generische Methode
@@ -9,5 +6,4 @@ public class GenericDemo<T, U extends Number & Comparable<U>>{
     <C extends Comparable<U>> boolean comp(C c){
         return c.compareTo(uMember) < 0;
     }
-
 }

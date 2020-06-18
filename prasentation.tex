@@ -192,14 +192,14 @@ System.Int32 -> System.ValueType -> System.Object ->
 %---------------------
 
 \begin{frame}{Generics - C\#}
-	\csharpcode[firstline=2,lastline=20]{Beispielcode/scraps/generics-1.cs}
+	\csharpcode[firstline=2,lastline=14]{Beispielcode/scraps/generics-1.cs}
 \end{frame}
 
 \begin{frame}{Generics - Java}
 	\javacode{Beispielcode/java/GenericDemo.java}
 \end{frame}
 
-\begin{frame}{Generics - Subtyping - Java}
+\begin{frame}{Generics - Subtyping}
 	\javacode{Beispielcode/java/Box.java}
 	\javacode[firstline=6, lastline=9]{Beispielcode/java/BoxDemo.java}
 \end{frame}
@@ -215,9 +215,9 @@ System.Int32 -> System.ValueType -> System.Object ->
 	\begin{itemize}
 		\item \glqq Covariance and contravariance are terms that refer to the ability to use a more derived type (more specific) or a less derived type (less specific) than originally specified.\grqq{} \cite{csharp_docs_variance}
 		\item Covariante Typparameter  sehen wie \glqq gewöhnlicher\grqq{} Polymorphismus aus.
-		\csharpcode[firstline=21, lastline=22]{Beispielcode/scraps/generics-1.cs}
+		\csharpcode[firstline=23, lastline=24]{Beispielcode/scraps/generics-1.cs}
 		\item Contravarianz:
-		\csharpcode[firstline=26, lastline=27]{Beispielcode/scraps/generics-1.cs}
+		\csharpcode[firstline=28, lastline=29]{Beispielcode/scraps/generics-1.cs}
 	\end{itemize}
 
 		%\csharpcode[firstline=21, lastline=22]{Beispielcode/scraps/generics-1.cs}
@@ -372,7 +372,7 @@ Beispiel von \cite{csharp_example_contravariance}
 
 \end{frame}
 
-\begin{frame}{Varianz in Delegaten}
+\begin{frame}{Generische Delegate und Varianz}
 	\begin{itemize}
 	 	\item Ein Delegat-Typ akzeptiert auch Delegate mit:
 	 	\begin{itemize}
@@ -381,7 +381,12 @@ Beispiel von \cite{csharp_example_contravariance}
 	 		\item Implizite Konvertierung, falls \texttt{in} bzw. \texttt{out} Keyword vorhanden
 	 	\end{itemize}
 	\end{itemize}
-	\csharpcode[firstline=24, lastline=24]{Beispielcode/scraps/generics-1.cs}
+	\csharpcode[fontsize=\tiny]{Beispielcode/csharp/GenericDelegates.cs}
+\end{frame}
+
+\begin{frame}{Functional Interfaces und Varianz}
+	Co- und Contravarianz in Functional Interfaces lässt sich ebenfalls über Wildcards realisieren.
+	\javacode[fontsize=\tiny]{Beispielcode/java/GenericFunctionalInterfaces.java}
 \end{frame}
 
 \begin{frame}{Delegate - Vergleich Java}
